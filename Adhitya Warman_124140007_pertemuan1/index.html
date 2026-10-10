@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechMart POS // Terminal Kasir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <div class="shell">
+    <header class="bar">
+      <div class="bar__brand">
+        <span class="bar__dot"></span>
+        <h1>TECHMART<span>_POS</span></h1>
+      </div>
+      <div class="bar__meta">
+        <span id="jam">--:--:--</span>
+        <span class="bar__status">&#9679; ONLINE</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- INPUT -->
+      <section class="module module--input">
+        <h2><i>&gt;</i> INPUT_BARANG</h2>
+        <form id="posForm" novalidate>
+          <div class="f">
+            <label for="iNama">nama_barang</label>
+            <input id="iNama" type="text" placeholder="contoh: Flashdisk 16GB" autocomplete="off">
+            <p class="f__err" id="eNama" role="alert"></p>
+          </div>
+          <div class="f">
+            <label for="iHarga">harga_satuan</label>
+            <input id="iHarga" type="number" placeholder="min 500" step="any">
+            <p class="f__err" id="eHarga" role="alert"></p>
+          </div>
+          <div class="f">
+            <label for="iQty">qty</label>
+            <input id="iQty" type="number" placeholder="min 1" step="any">
+            <p class="f__err" id="eQty" role="alert"></p>
+          </div>
+          <button type="submit" class="b b--cyan">[ Masuk Keranjang ]</button>
+        </form>
+      </section>
+
+      <!-- CART -->
+      <section class="module module--cart">
+        <div class="module__head">
+          <h2><i>&gt;</i> KERANJANG_BELANJA</h2>
+          <span class="tag" id="cCount">0 item</span>
+        </div>
+        <div class="xscroll">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th class="r">Harga Satuan</th>
+                <th class="r">Qty</th>
+                <th class="r">Subtotal</th>
+                <th class="c">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="cBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PAYMENT -->
+      <section class="module module--pay">
+        <h2><i>&gt;</i> PEMBAYARAN</h2>
+
+        <dl class="calc">
+          <div><dt>TOTAL_BELANJA</dt><dd id="pTotal">Rp 0</dd></div>
+          <div><dt id="pDiskonLabel">DISKON</dt><dd id="pDiskon" class="g">- Rp 0</dd></div>
+          <div class="calc__grand"><dt>TOTAL_AKHIR</dt><dd id="pGrand">Rp 0</dd></div>
+        </dl>
+
+        <div class="f">
+          <label for="iBayar">uang_bayar</label>
+          <input id="iBayar" type="number" placeholder="nominal diterima" step="any">
+        </div>
+
+        <div class="chg" id="chgBox">
+          <span>KEMBALIAN</span>
+          <strong id="pChange">Rp 0</strong>
+          <em id="pNote"></em>
+        </div>
+
+        <button type="button" class="b b--red" id="bReset">[ TRANSAKSI_BARU / RESET ]</button>
+      </section>
+    </div>
+
+    <footer class="foot">Adhitya Warman</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
