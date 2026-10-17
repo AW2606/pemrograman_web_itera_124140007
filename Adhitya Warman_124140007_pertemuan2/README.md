@@ -1,6 +1,6 @@
-# Bitlog
+# ADWA DASH
 
-Dashboard pribadi untuk mahasiswa Informatika. Bitlog mencatat tugas kuliah beserta tenggatnya, lalu menampilkan cuaca kampus ITERA dan satu kutipan harian di sampingnya.
+Dashboard pribadi untuk mahasiswa Informatika. ADWA DASH mencatat tugas kuliah beserta tenggatnya, lalu menampilkan cuaca kampus ITERA dan satu kutipan harian di sampingnya.
 
 ## Fitur aplikasi
 - Tambah, ubah, hapus, dan tandai selesai pada tugas (per mata kuliah, dengan tenggat).
@@ -13,7 +13,7 @@ Dashboard pribadi untuk mahasiswa Informatika. Bitlog mencatat tugas kuliah bese
 Buka `index.html` di browser. Tidak perlu instalasi dan tidak perlu API key.
 
 ## Screenshot
-![Image Alt]()
+![Image Alt](https://github.com/AW2606/fotodokumtugas/blob/5b476a5a441dc3d4600352b4b96a7bf50000e82c/DOKUM/PAW/praktikum2/Dashboard.png)
 
 ## Fitur ES6+ (file `app.js`)
 | Fitur | Baris |
