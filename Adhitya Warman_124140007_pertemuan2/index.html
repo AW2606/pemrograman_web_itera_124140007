@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitlog - Dashboard Tugas Mahasiswa Informatika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient-glow" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="brand-section">
+    <div class="brand-title-row">
+      <div class="brand-logo-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+      </div>
+      <h1>ADWA DASH</h1>
+      <span class="tech-pill"><span class="pulse-dot"></span>Jadwal Gwehh</span>
+    </div>
+    <p class="tagline">Tugas Pribadi &amp; Reminder</p>
+  </div>
+
+  <div class="header-right">
+    <div class="clock-card">
+      <div class="clock-row">
+        <time id="clock">--:--:--</time>
+        <span class="tz-badge">WIB</span>
+      </div>
+      <span id="date"></span>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Ubah tema tampilan" title="Ubah tema terang/gelap">
+      <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="main-card" aria-labelledby="judul-tugas">
+    <div class="section-header">
+      <div class="section-title-wrap">
+        <h2 id="judul-tugas">Tugas dan Tenggat</h2>
+        <span class="sub-label">Manajemen aktivitas kuliah</span>
+      </div>
+    </div>
+
+    <form id="task-form" autocomplete="off" class="task-form">
+      <label class="form-group wide">
+        <span class="label-text">Nama Tugas</span>
+        <input id="f-title" required maxlength="80" placeholder="Kerjakan tugas Personal Dashboard PAW...">
+      </label>
+      <label class="form-group">
+        <span class="label-text">Mata Kuliah</span>
+        <select id="f-course">
+          <option>PAW</option>
+          <option>PAM</option>
+          <option>IB</option>
+          <option>Jarkom</option>
+          <option>Sisfor</option>
+        </select>
+      </label>
+      <label class="form-group">
+        <span class="label-text">Tenggat</span>
+        <input id="f-due" type="date">
+      </label>
+      <div class="actions">
+        <button type="submit" id="f-submit" class="btn-primary">Tambah tugas</button>
+        <button type="button" id="f-cancel" class="btn-ghost" hidden>Batal</button>
+      </div>
+    </form>
+
+    <div class="task-control-panel">
+      <div class="status-summary">
+        <span class="status-indicator-dot"></span>
+        <p id="summary" aria-live="polite">Memuat data...</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter tugas">
+        <button type="button" data-filter="all" aria-pressed="true">Semua</button>
+        <button type="button" data-filter="active" aria-pressed="false">Belum selesai</button>
+        <button type="button" data-filter="done" aria-pressed="false">Selesai</button>
+      </div>
+    </div>
+
+    <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+    <ul id="task-list" class="task-list"></ul>
+  </section>
+
+  <aside class="rail" aria-label="Info harian">
+    <div class="side-card telemetry-card">
+      <div class="rail-header">
+        <span class="rail-badge">TELEMETRY</span>
+        <span class="rail-location">ITERA METEO</span>
+      </div>
+      <section id="weather" class="weather">Memuat cuaca...</section>
+    </div>
+
+    <div class="side-card zen-card">
+      <div class="rail-header">
+        <span class="rail-badge">DAILY INSPIRATION</span>
+        <span class="rail-quote-icon">&ldquo;</span>
+      </div>
+      <section id="quote" class="quote">Memuat kutipan...</section>
+    </div>
+
+    <div class="side-card profile-card">
+      <div class="profile-badge-avatar">AW</div>
+      <div class="profile-meta">
+        <div class="profile-name">Adhitya Warman</div>
+        <div class="profile-desc">124140007 &bull; IF ITERA</div>
+      </div>
+      <div class="profile-status" title="Aktif">
+        <span class="pulse-dot green"></span>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script src="app.js" defer></script>
+<script>
+  // Theme Toggle Controller (Non-intrusive to app.js to preserve line numbering)
+  (function() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('bitlog_theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = stored || (systemPrefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', initialTheme);
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('bitlog_theme', next);
+      });
+    }
+  })();
+</script>
+</body>
+</html>

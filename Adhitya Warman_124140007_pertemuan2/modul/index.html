@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan Async Programming - PAW Pertemuan 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient-glow" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="header-left">
+    <a href="../index.html" class="nav-back-btn" title="Kembali ke Dashboard Utama">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Dashboard
+    </a>
+    <div class="brand-title-wrap">
+      <div class="title-row">
+        <h1>Latihan Async Programming</h1>
+        <span class="tech-pill"><span class="pulse-dot"></span>ES6+ ASYNC</span>
+      </div>
+      <p class="tagline">Eksplorasi Fetch, Promise.all, Retry Backoff, Error Boundary, &amp; Debounce</p>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div class="student-mini-pill">
+      <div class="student-avatar-sm">AW</div>
+      <span class="student-label">124140007</span>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Ubah tema tampilan" title="Ubah tema terang/gelap">
+      <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="stack">
+  <div id="global-error" class="banner" role="alert" hidden></div>
+
+  <!-- Latihan 1 -->
+  <section class="exercise-card">
+    <div class="card-badge-row">
+      <span class="card-badge"><span class="badge-num">01</span> PROMISE.ALL PARALLEL</span>
+    </div>
+    <h2>1. Fetch beberapa endpoint dan gabungkan</h2>
+    <p class="description">Mengambil profil, postingan, dan todo milik satu user secara paralel dengan <code>Promise.all</code>.</p>
+    <div class="row">
+      <button id="btn-combine" type="button" class="btn-primary">Ambil data user 1</button>
+    </div>
+    <div id="out-combine" class="out"></div>
+  </section>
+
+  <!-- Latihan 2 -->
+  <section class="exercise-card">
+    <div class="card-badge-row">
+      <span class="card-badge"><span class="badge-num">02</span> EXPONENTIAL BACKOFF</span>
+    </div>
+    <h2>2. Retry dengan exponential backoff</h2>
+    <p class="description">Jeda antar percobaan berlipat dua: <code>400ms &rarr; 800ms &rarr; 1600ms &rarr; 3200ms</code>.</p>
+    <div class="row">
+      <button id="btn-retry-ok" type="button" class="btn-primary">Gagal 3 kali, lalu berhasil</button>
+      <button id="btn-retry-fail" type="button" class="btn-ghost">Selalu gagal</button>
+    </div>
+    <pre id="retry-log" class="log" aria-live="polite" placeholder="Menunggu perintah..."></pre>
+  </section>
+
+  <!-- Latihan 3 -->
+  <section class="exercise-card">
+    <div class="card-badge-row">
+      <span class="card-badge"><span class="badge-num">03</span> LOADING STATE &amp; RACE CANCEL</span>
+    </div>
+    <h2>3. Loading state</h2>
+    <p class="description">Permintaan sengaja ditunda 1,5 detik agar indikator memuat dan proteksi respons usang terlihat.</p>
+    <div class="row">
+      <button id="btn-loading" type="button" class="btn-primary">Muat postingan</button>
+    </div>
+    <div id="out-loading" class="out"></div>
+  </section>
+
+  <!-- Latihan 4 -->
+  <section class="exercise-card">
+    <div class="card-badge-row">
+      <span class="card-badge"><span class="badge-num">04</span> ASYNC ERROR BOUNDARY</span>
+    </div>
+    <h2>4. Error boundary untuk error async</h2>
+    <p class="description">Error dari <code>fetch</code> ditampilkan di panel dengan tombol coba lagi. Promise tanpa <code>catch</code> ditangkap handler global.</p>
+    <div class="row">
+      <button id="btn-error" type="button" class="btn-primary">Panggil endpoint yang tidak ada</button>
+      <button id="btn-unhandled" type="button" class="btn-ghost">Picu promise tanpa catch</button>
+    </div>
+    <div id="out-error" class="out"></div>
+  </section>
+
+  <!-- Latihan 5 -->
+  <section class="exercise-card">
+    <div class="card-badge-row">
+      <span class="card-badge"><span class="badge-num">05</span> ASYNC PAGINATION</span>
+    </div>
+    <h2>5. Pagination</h2>
+    <p class="description">Navigasi data dinamis berbasis halaman dan limit menggunakan <code>async/await</code>.</p>
+    <div id="out-page" class="out"></div>
+    <div class="row pagination-row">
+      <button id="btn-prev" type="button" class="btn-ghost">Sebelumnya</button>
+      <button id="btn-next" type="button" class="btn-ghost">Berikutnya</button>
+      <span id="page-label" class="page-badge" aria-live="polite">Memuat halaman...</span>
+    </div>
+  </section>
+
+  <!-- Latihan 6 -->
+  <section class="exercise-card">
+    <div class="card-badge-row">
+      <span class="card-badge"><span class="badge-num">06</span> DEBOUNCED SEARCH + ABORT</span>
+    </div>
+    <h2>6. Pencarian dengan debounce</h2>
+    <p class="description">Optimasi pencarian real-time dengan jeda 400ms dan pembatalan request lama via <code>AbortController</code>.</p>
+    <label class="search-form-group">
+      <span class="label-text">Cari Produk</span>
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="search" type="search" placeholder="Coba ketik: phone, laptop, shoes...">
+      </div>
+    </label>
+    <p id="search-stats" class="meta telemetry-stats">Ketikan: 0, request terkirim: 0</p>
+    <div id="out-search" class="out"></div>
+  </section>
+</main>
+
+<script src="latihan.js" defer></script>
+<script>
+  // Theme Toggle Controller (Sync with Dashboard via bitlog_theme)
+  (function() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('bitlog_theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = stored || (systemPrefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', initialTheme);
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('bitlog_theme', next);
+      });
+    }
+  })();
+</script>
+</body>
+</html>
