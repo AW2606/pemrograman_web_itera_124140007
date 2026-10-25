@@ -1,0 +1,69 @@
+/* Import Font dari Google Fonts: Newsreader (Serif Klasik Elegan) dan Plus Jakarta Sans (UI Bersih) */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Palet Warna Kertas Krem Hangat & Tinta Gelap (Warm Parchment & Deep Ink) */
+  --color-bg: #f8f5ee;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fcfbf8;
+  --color-ink: #23211e;
+  --color-ink-muted: #676156;
+  --color-border: #ded7c8;
+  --color-border-subtle: #ece5d8;
+  --color-border-input: #c6bfae;
+  --color-input-bg: #fcfbfa;
+
+  /* Warna Aksen Tegas: Terracotta / Crimson Merah Bata Perpustakaan */
+  --color-accent: #9b3824;
+  --color-accent-hover: #7d2a19;
+  --color-accent-subtle: #fbeee9;
+
+  /* Warna Peringatan / Error */
+  --color-error: #b3261e;
+
+  /* Tipografi */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility: Focus outlines */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}

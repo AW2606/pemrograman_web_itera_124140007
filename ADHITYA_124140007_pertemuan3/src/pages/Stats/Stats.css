@@ -1,0 +1,309 @@
+/* Styling untuk Halaman Statistik */
+
+.stats-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.04);
+}
+
+.stats-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-accent, #9b3824);
+  margin-bottom: 0.4rem;
+}
+
+.stats-title {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-ink, #23211e);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.015em;
+}
+
+.stats-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-ink-muted, #69635b);
+  margin: 0;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+.back-to-catalog-btn {
+  white-space: nowrap;
+}
+
+/* Grid Kartu Ringkasan */
+.stats-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.overview-card {
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.04);
+}
+
+.total-card {
+  border-top: 4px solid var(--color-accent, #9b3824);
+}
+
+.color-milik-card {
+  border-top: 4px solid #1e5926;
+}
+
+.color-baca-card {
+  border-top: 4px solid #164e83;
+}
+
+.color-beli-card {
+  border-top: 4px solid #92510e;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.overview-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted, #69635b);
+}
+
+.overview-value {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-ink, #23211e);
+  line-height: 1.1;
+  margin: 0.25rem 0 0.4rem 0;
+}
+
+.overview-caption {
+  font-size: 0.8rem;
+  color: #7b746a;
+  line-height: 1.35;
+}
+
+.status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.status-pill.color-milik {
+  background-color: #edf5ee;
+  color: #1e5926;
+  border: 1px solid #c2dec5;
+}
+
+.status-pill.color-baca {
+  background-color: #edf3f9;
+  color: #164e83;
+  border: 1px solid #bfd6ee;
+}
+
+.status-pill.color-beli {
+  background-color: #fdf5ea;
+  color: #92510e;
+  border: 1px solid #f2d7b5;
+}
+
+/* Bagian Bagian Konten Statistik */
+.stats-section {
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.04);
+}
+
+.section-heading {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-ink, #23211e);
+  margin: 0 0 0.25rem 0;
+}
+
+.section-subheading {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted, #69635b);
+  margin: 0 0 1.5rem 0;
+}
+
+.stats-empty-note {
+  padding: 2rem;
+  background-color: #f9f7f2;
+  border: 1px dashed var(--color-border, #ded8cc);
+  border-radius: 3px;
+  text-align: center;
+  color: var(--color-ink-muted, #69635b);
+  font-size: 0.95rem;
+}
+
+/* Stacked Progress Bar */
+.stacked-progress-bar {
+  display: flex;
+  height: 16px;
+  background-color: #eee9de;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid #dfd8cb;
+}
+
+.segment {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.segment-milik {
+  background-color: #276932;
+}
+
+.segment-baca {
+  background-color: #1f61a1;
+}
+
+.segment-beli {
+  background-color: #b86915;
+}
+
+/* Rincian Bar Perseorangan */
+.detailed-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.breakdown-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.row-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.row-label {
+  font-weight: 600;
+  color: var(--color-ink, #23211e);
+}
+
+.row-values {
+  color: var(--color-ink-muted, #5a544b);
+}
+
+.row-bar-bg {
+  height: 8px;
+  background-color: #eee9de;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.row-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.bar-milik {
+  background-color: #276932;
+}
+
+.bar-baca {
+  background-color: #1f61a1;
+}
+
+.bar-beli {
+  background-color: #b86915;
+}
+
+/* Tabel */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle, #ece7dd);
+  text-align: left;
+}
+
+.stats-table thead th {
+  background-color: #f7f3eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted, #69635b);
+  border-bottom: 2px solid var(--color-border, #ded8cc);
+}
+
+.stats-table tfoot th {
+  background-color: #fbf9f4;
+  font-weight: 700;
+  color: var(--color-ink, #23211e);
+  border-top: 2px solid var(--color-border, #ded8cc);
+  border-bottom: none;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-mono {
+  font-family: var(--font-mono, monospace);
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #7b746a;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .stats-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,160 @@
+/* Styling untuk BookFilter - Filter Tab & Pencarian Perpustakaan */
+
+.book-filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.05);
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.search-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted, #69635b);
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #8c8375;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-ink, #23211e);
+  background-color: var(--color-input-bg, #fdfcf9);
+  border: 1px solid var(--color-border-input, #c8c0b2);
+  border-radius: 3px;
+  padding: 0.65rem 2.2rem 0.65rem 2.6rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: var(--color-accent, #9b3824);
+  box-shadow: 0 0 0 3px rgba(155, 56, 36, 0.12);
+  background-color: #ffffff;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #8c8375;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+}
+
+.search-clear-btn:hover {
+  color: var(--color-ink, #23211e);
+  background-color: #f1ede4;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted, #69635b);
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-tab-btn {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.86rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  background-color: #f6f3eb;
+  color: var(--color-ink-muted, #5a544b);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.15s ease;
+}
+
+.filter-tab-btn:hover {
+  background-color: #ece6d9;
+  color: var(--color-ink, #23211e);
+  border-color: #c8c0b2;
+}
+
+.filter-tab-btn:focus-visible {
+  outline: 2px solid var(--color-accent, #9b3824);
+  outline-offset: 2px;
+}
+
+.filter-tab-btn.active {
+  background-color: var(--color-ink, #23211e);
+  color: #ffffff;
+  border-color: var(--color-ink, #23211e);
+  font-weight: 600;
+}
+
+.tab-count-badge {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: inherit;
+  font-weight: 600;
+}
+
+.filter-tab-btn.active .tab-count-badge {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+@media (max-width: 640px) {
+  .book-filter-container {
+    padding: 1rem;
+  }
+
+  .filter-tabs {
+    flex-direction: column;
+  }
+
+  .filter-tab-btn {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

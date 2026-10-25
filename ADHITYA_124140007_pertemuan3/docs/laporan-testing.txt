@@ -1,0 +1,47 @@
+======================================================================
+LAPORAN TESTING OTOMATIS UNIT TEST & INTEGRASI
+Aplikasi Manajemen Buku Pribadi (Biblioteka)
+Praktikum Pengembangan Aplikasi Web (Pertemuan 3) - Teknik Informatika ITERA
+Pemilik: Adhitya Warman (NIM: 124140007)
+Framework Test : Vitest v5.0.5 + @testing-library/react + jsdom
+======================================================================
+
+> adhitya-124140007-pertemuan3@0.0.0 test
+> vitest run
+
+ RUN  v5.0.5 C:/Users/Adhitya Warman/Desktop/praktikumpaw/pertemuan3/ADHITYA_124140007_pertemuan3
+
+ ✓ src/__tests__/useBookStats.test.js (2 tests) 95ms
+   - 5. Menghitung total dan jumlah per status beserta persentase dengan benar
+   - 5. Menangani daftar buku kosong tanpa error pembagian dengan nol
+
+ ✓ src/__tests__/useLocalStorage.test.js (3 tests) 89ms
+   - 6. Membaca initialValue saat localStorage kosong dan menyimpannya saat nilai diubah
+   - 6. Membaca data yang sudah tersimpan sebelumnya di localStorage
+   - 6. Aman terhadap JSON rusak di localStorage dan kembali ke initialValue
+
+ ✓ src/__tests__/BookFilter.test.jsx (1 test) 145ms
+   - 4. Mengubah filter saat tombol status diklik & input pencarian
+
+ ✓ src/__tests__/BookList.test.jsx (2 tests) 260ms
+   - 3. Menampilkan pesan kosong bila daftar buku kosong
+   - 3. Menampilkan daftar buku dengan benar jika data tersedia
+
+ ✓ src/__tests__/BookForm.test.jsx (2 tests) 629ms
+   - 1. Menampilkan pesan error saat judul dan penulis kosong atau hanya spasi
+   - 2. Memanggil handler submit dengan data yang benar saat input valid
+
+ ✓ src/__tests__/AppFlow.test.jsx (3 tests) 916ms
+   - Menampilkan halaman utama, menambahkan buku baru, dan menghitung total
+   - Dapat memfilter daftar buku berdasarkan kata kunci pencarian
+   - Dapat menghapus buku setelah konfirmasi window.confirm disetujui
+
+ Test Files  6 passed (6)
+      Tests  13 passed (13)
+   Duration  6.29s
+
+======================================================================
+STATUS: SELURUH TEST BERHASIL LULUS (100% PASSING)
+LINT STATUS: 0 ERRORS, 0 WARNINGS (oxlint)
+BUILD STATUS: SUCCESS (vite build)
+======================================================================

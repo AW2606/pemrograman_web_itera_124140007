@@ -1,0 +1,248 @@
+/* Styling Utama Aplikasi Biblioteka (App.css) */
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Navigasi */
+.site-header {
+  background-color: var(--color-surface, #ffffff);
+  border-bottom: 1px solid var(--color-border, #ded8cc);
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.03);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-section:hover {
+  text-decoration: none;
+}
+
+.brand-icon-wrap {
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-accent-subtle, #fbeee9);
+  border: 1px solid #ecc9be;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent, #9b3824);
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-ink, #23211e);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  color: var(--color-ink-muted, #69635b);
+  letter-spacing: 0.02em;
+}
+
+/* Navigasi Utama */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-muted, #5a544b);
+  padding: 0.5rem 0.95rem;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--color-ink, #23211e);
+  background-color: #f5f0e6;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: var(--color-accent, #9b3824);
+  background-color: var(--color-accent-subtle, #fbeee9);
+  font-weight: 700;
+}
+
+/* Lencana Identitas Mahasiswa */
+.student-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f7f3eb;
+  border: 1px solid var(--color-border, #ded8cc);
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  color: var(--color-ink, #23211e);
+  white-space: nowrap;
+}
+
+.student-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-accent, #9b3824);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.student-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.student-name {
+  font-weight: 700;
+}
+
+.student-nim {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: var(--color-ink-muted, #69635b);
+}
+
+/* Kontainer Konten Utama */
+.app-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Footer Aplikasi */
+.site-footer {
+  background-color: var(--color-surface, #ffffff);
+  border-top: 1px solid var(--color-border, #ded8cc);
+  padding: 1.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: var(--color-ink-muted, #69635b);
+}
+
+.footer-credits strong {
+  color: var(--color-ink, #23211e);
+}
+
+/* Halaman 404 Not Found */
+.not-found-card {
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 4px;
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.05);
+}
+
+.not-found-code {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--color-accent, #9b3824);
+  line-height: 1;
+  margin: 0 0 0.5rem 0;
+}
+
+.not-found-title {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.6rem;
+  color: var(--color-ink, #23211e);
+  margin: 0 0 0.75rem 0;
+}
+
+.not-found-text {
+  font-size: 0.95rem;
+  color: var(--color-ink-muted, #69635b);
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+
+  .student-badge {
+    order: 2;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border-subtle, #ece7dd);
+  }
+
+  .app-content {
+    padding: 1.25rem 1rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

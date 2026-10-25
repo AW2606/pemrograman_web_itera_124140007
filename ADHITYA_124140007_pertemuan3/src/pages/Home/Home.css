@@ -1,0 +1,130 @@
+/* Styling untuk Halaman Home */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Banner Pengantar */
+.home-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #ded8cc);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 1px 3px rgba(35, 33, 30, 0.04);
+}
+
+.hero-title {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-ink, #23211e);
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.015em;
+}
+
+.hero-description {
+  font-size: 0.95rem;
+  color: var(--color-ink-muted, #69635b);
+  margin: 0;
+  max-width: 650px;
+  line-height: 1.5;
+}
+
+.hero-stats-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding: 0.75rem 1.25rem;
+  background-color: #f7f3ea;
+  border: 1px solid #dfd7c9;
+  border-radius: 4px;
+}
+
+.badge-number {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent, #9b3824);
+  line-height: 1;
+}
+
+.badge-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted, #69635b);
+  margin-top: 0.25rem;
+}
+
+/* Tata Letak Utama */
+.home-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.home-sidebar {
+  width: 100%;
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-serif, 'Newsreader', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--color-ink, #23211e);
+  margin: 0;
+}
+
+.search-status-text {
+  font-size: 0.85rem;
+  color: var(--color-ink-muted, #69635b);
+}
+
+@media (max-width: 960px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-wrapper {
+    position: static;
+  }
+
+  .home-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .hero-stats-badge {
+    align-self: flex-start;
+  }
+}
