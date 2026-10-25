@@ -38,7 +38,7 @@
 
 1. **Masuk ke folder proyek**:
    ```bash
-   cd ADHITYA_124140007_pertemuan3
+   cd Adhitya Warman_124140007_pertemuan3
    ```
 
 2. **Pasang seluruh dependensi**:
